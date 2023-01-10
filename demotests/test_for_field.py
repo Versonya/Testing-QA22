@@ -31,5 +31,5 @@ class TestForField():
                 actual_result = list['Elena', 'eps@gmail.com', 'Ukraine', 'Kharkiv']
                 expected_result = list[output_name, output_email, output_current_address, output_permanent_address]
                 assert actual_result == expected_result 
-                #print(output_name, output_email, output_current_address, output_permanent_address)
+
 
