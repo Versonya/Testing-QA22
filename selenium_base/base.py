@@ -46,3 +46,6 @@ class SeleniumBase:
     def go_to_element(self, element):
         self.driver.execute_script("arguments[0].scrollIntoView();", element)
 
+    #def find_element(self, self, find_by: str, locator: str, locator_name: str =None):
+     #   return self.
+
