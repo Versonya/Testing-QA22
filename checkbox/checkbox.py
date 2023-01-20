@@ -58,8 +58,7 @@ class CheckBoxes(SeleniumBase):
         checked_list = self.are_present('css', self.checked_items)
         data = []
         for box in checked_list:
-            item = box.find_element('xpath', self.title_item).text
-            data.append(item)
-        return data
+            item = box.find_element(self, ).text
+            print(data.append(item))
 
 

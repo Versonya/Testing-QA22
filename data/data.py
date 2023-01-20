@@ -8,10 +8,10 @@ class Person:
         permanent_address: str = None
 
 @dataclass
-class Table_fields:
+class Table:
         first_name: str = None
         last_name: str = None
         email: str = None
-        age: str =  None
-        salary: str = None
+        age: int = None
+        salary: int = None
         department: str = None

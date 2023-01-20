@@ -1,12 +1,13 @@
 import pytest
 from selenium import webdriver
-from selenium.webdriver.chrome.options import Options as Chrome_options
+from selenium.webdriver.chrome.options import Options as chrome_options
+
 
 
 @pytest.fixture
 def get_chrome_options():
-    options = Chrome_options()
-    options.add_argument('chrome')  # headless mode starts tests without UI
+    options = chrome_options()
+    options.add_argument('chrome') #headless mode starts tests without UI
     options.add_argument('--start-maximized')
     options.add_argument('windows-size=1280,720')
     return options
@@ -29,4 +30,5 @@ def setup(request, get_webdriver):
     yield driver
     driver.close()   # закрывает вкладку
     driver.quit()   # закрывает браузер
+
     
