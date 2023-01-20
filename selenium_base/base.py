@@ -39,3 +39,12 @@ class SeleniumBase:
 
     def are_present(self, find_by: str, locator: str, locator_name: str =None) -> List[WebElement]:
         return self.wait.until(EC.visibility_of_all_elements_located((self.get_selenium_by(find_by), locator)), locator_name)
+
+    def is_clickable(self, find_by: str, locator: str, locator_name: str = None):
+        return self.wait.until(EC.element_to_be_clickable((self.get_selenium_by(find_by), locator)), locator_name)
+
+    def go_to_element(self, element):
+        return self.driver.execute_script("arguments[0].scrollIntoView();", element)
+
+    def find_element(self, find_by: str, locator: str, locator_name: str =None) -> List[WebElement]:
+        return self.wait.until(EC.visibility_of_all_elements_located((self.get_selenium_by(find_by), locator)), locator_name)
