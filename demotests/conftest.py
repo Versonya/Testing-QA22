@@ -3,6 +3,7 @@ from selenium import webdriver
 from selenium.webdriver.chrome.options import Options as chrome_options
 
 
+
 @pytest.fixture
 def get_chrome_options():
     options = chrome_options()
@@ -27,6 +28,7 @@ def setup(request, get_webdriver):
         request.cls.driver = driver
     driver.get(url)
     yield driver
-    driver.close()  # закрывает вкладку
-    driver.quit()  # закрывает браузер
+    driver.close()   # закрывает вкладку
+    driver.quit()   # закрывает браузер
+
     
