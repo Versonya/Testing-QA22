@@ -24,6 +24,8 @@ class WebTables(SeleniumBase):
         self.delete_button = 'span[id="delete-record-1"]'
         self.edit_button = 'span[title="Edit"]'
         self.table_row = 'div[class="rt-tr-group"]'
+        self.count_row_list = '[aria-label="rows per page"]'
+        self.full_list = 'div[class="rt-tbody"]'
 
     def find_webtables_page(self):
         return self.is_visible('css', self.find_page, 'Open Webtables')
@@ -86,6 +88,20 @@ class WebTables(SeleniumBase):
     def find_submit_button(self):
         return self.is_visible('css', self.submit_button, '')
 
+    def select_go_to_rows(self):
+        count = [5, 10, 25, 50, 100]
+        data = []
+        for i in count:
+            count_row_button = self.is_visible('css', self.count_row_list)
+            self.go_to_element(count_row_button)
+            count_row_button.click()
+            self.is_visible('css', f'option[value="{i}"]').click()
+            data.append(self.check_count_rows())
+        return data
+
+    def check_count_rows(self):
+        list_rows = self.are_present('css', self.full_list)
+        return len(list_rows)
 
 
 

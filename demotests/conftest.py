@@ -23,7 +23,7 @@ def get_webdriver(get_chrome_options):
 @pytest.fixture(scope='function')
 def setup(request, get_webdriver):
     driver = get_webdriver
-    url = 'https://demoqa.com/text-box'
+    url = 'https://demoqa.com/elements'
     if request.cls is not None:
         request.cls.driver = driver
     driver.get(url)
