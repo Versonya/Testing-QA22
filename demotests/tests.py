@@ -1,3 +1,6 @@
+import random
+import time
+
 import pytest
 
 from elements.checkbox import CheckBoxes
@@ -52,5 +55,16 @@ class TestForCheckbox:
                 table_result = webtables.get_table_row()
                 print(table_result)
                 print(new_person)
+                webtables.find_search_field().send_keys('Cierra')
+                webtables.find_edit().click()
+                time.sleep(2)
                 assert new_person in table_result
 
+        def test_Webtables_search_person(self):
+                webtables = WebTables(self.driver)
+                webtables.find_webtables_page().click()
+                webtables.find_add().click()
+                key_word = webtables.fill_all_fields()[random.randint(0, 5)]
+                webtables.find_search_field().send_keys(key_word)
+                table_result = webtables.get_table_row()[0]
+                assert key_word in table_result
