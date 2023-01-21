@@ -22,7 +22,7 @@ class WebTables(SeleniumBase):
         self.department_field = 'input[id="department"]'
         self.submit_button = 'button[id="submit"]'
         self.delete_button = 'span[id="delete-record-1"]'
-        self.edit_button = 'span[id="edit-record-1"]'
+        self.edit_button = 'span[title="Edit"]'
         self.table_row = 'div[class="rt-tr-group"]'
 
     def find_webtables_page(self):
