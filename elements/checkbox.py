@@ -61,4 +61,3 @@ class CheckBoxes(SeleniumBase):
             item = box.find_element(self, ).text
             print(data.append(item))
 
-
