@@ -28,7 +28,7 @@ class SeleniumBase:
 
     def is_present(self, find_by: str, locator: str, locator_name: str = None) -> WebElement:
         return self.wait.until(
-                EC.visibility_of_element_located((self.get_selenium_by(find_by), locator)), locator_name)
+                EC.presence_of_element_located((self.get_selenium_by(find_by), locator)), locator_name)
 
     def is_not_present(self, find_by: str, locator: str, locator_name: str = None) -> WebElement:
         return self.wait.until(
