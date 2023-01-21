@@ -62,3 +62,4 @@ class CheckBoxes(SeleniumBase):
             data.append(title_item.text)
         return data
 
+
