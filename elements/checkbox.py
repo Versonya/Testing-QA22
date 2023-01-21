@@ -17,11 +17,17 @@ class CheckBoxes(SeleniumBase):
         self.checked_items = 'svg[class="rct-icon rct-icon-check"]'
         self.checkbox_list = 'span[class="rct-title"]'
         self.checkbox_list_text = ['Home', 'Desktop', 'Notes', 'Commands', 'Documents', 'WorkSpace', 'React', 'Angular', 'Veu', 'Office', 'Public', 'Private', 'Classified', 'General', 'Downloads', 'Word File.doc', 'Excel File.doc']
-        self.title_item = './/ancestor::span[@class="rct-text"]'
+        self.title_item = '//ancestor::span[@class="rct-text"]'
 
 
 
-
+    def get_checked_items(self):
+        checked_list = self.are_present('css', self.checked_items)
+        data = []
+        for box in checked_list:
+            title_item = self.is_present('xpath', self.title_item)
+            data.append(title_item.text)
+        return data
     def find_checkboxes_page(self):
         return self.is_visible('css', self.checkboxes_page, 'test checkboxes')
 
@@ -53,11 +59,4 @@ class CheckBoxes(SeleniumBase):
             else:
                 break
 
-
-    def get_checked_items(self):
-        checked_list = self.are_present('css', self.checked_items)
-        data = []
-        for box in checked_list:
-            item = box.find_element(self, ).text
-            print(data.append(item))
 

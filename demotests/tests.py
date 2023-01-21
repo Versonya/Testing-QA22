@@ -1,9 +1,8 @@
 import pytest
-import time
 
-from checkbox.checkbox import CheckBoxes
-from checkbox.radiobutton import RadioButtons
-from checkbox.webtables import WebTables
+from elements.checkbox import CheckBoxes
+from elements.radiobutton import RadioButtons
+from elements.webtables import WebTables
 
 
 
@@ -15,7 +14,15 @@ class TestForCheckbox:
                 CheckBoxDriver.find_checkboxes_page().click()
                 CheckBoxDriver.find_expand().click()
                 CheckBoxDriver.click_random_checkboxes()
-                CheckBoxDriver.get_checked_items()
+                checkbox_clicked = CheckBoxDriver.get_checked_items()
+                checkbox_list = CheckBoxDriver.find_checkboxes_text()
+                print(checkbox_clicked)
+                print(checkbox_list)
+                #checked_items = ','.join(checkbox_clicked)
+                #actual_checkboxes = ','.join(checkbox_list)
+                #assert checkbox_clicked in actual_checkboxes
+                #assert checked_items in actual_checkboxes
+
                 #actual_result_text = CheckBoxDriver.find_checkboxes_text()
                 #expected_result_text = CheckBoxDriver.checkbox_list_text
                 #assert actual_result_text == expected_result_text
@@ -46,3 +53,4 @@ class TestForCheckbox:
                 print(table_result)
                 print(new_person)
                 assert new_person in table_result
+
