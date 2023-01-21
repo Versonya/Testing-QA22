@@ -63,3 +63,4 @@ class CheckBoxes(SeleniumBase):
         return data
 
 
+
