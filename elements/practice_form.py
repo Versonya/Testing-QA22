@@ -113,67 +113,6 @@ class PracticeForm(SeleniumBase):
 
         return data
 
-    def find_name_result(self):
-        table = self.are_visible('css', self.result_table)
-        data = []
-        for row in table:
-            data.append(row.text.replace('Student Name', '').replace('Student Email', '').replace('Gender', '').replace(
-                'Mobile', '').replace('Date of Birth ', '').replace('Subjects ', '').replace('Hobbies ', '').replace(
-                'Picture ', '').replace('Address ', '').replace('StateandCity ', '').replace(' ', '').split('\n')[1])
-
-        return data
-
-    def find_email_result(self):
-        table = self.are_visible('css', self.result_table)
-        data = []
-        for row in table:
-            data.append(
-                row.text.replace('Student Name', '').replace('Student Email', '').replace('Gender', '').replace('Mobile',
-                                                                                                            '').replace(
-                'Date of Birth ', '').replace('Subjects ', '').replace('Hobbies ', '').replace('Picture ', '').replace(
-                'Address ', '').replace('StateandCity ', '').replace(' ', '').split('\n')[2:])
-
-        return data
-
-    def find_mobile_result(self):
-        table = self.are_visible('css', self.result_table)
-        data = []
-        for row in table:
-            data.append(
-                row.text.replace('Student Name', '').replace('Student Email', '').replace('Gender', '').replace('Mobile',
-                                                                                                            '').replace(
-                'Date of Birth ', '').replace('Subjects ', '').replace('Hobbies ', '').replace('Picture ', '').replace(
-                'Address ', '').replace('StateandCity ', '').replace(' ', '').split('\n')[4:])
-
-        return data
-
-    def find_address_result(self):
-        table = self.are_visible('css', self.result_table)
-        data = []
-        for row in table:
-            data.append(
-                row.text.replace('Student Name', '').replace('Student Email', '').replace('Gender', '').replace('Mobile',
-                                                                                                            '').replace(
-                'Date of Birth ', '').replace('Subjects ', '').replace('Hobbies ', '').replace('Picture ', '').replace(
-                'Address ', '').replace('StateandCity ', '').replace(' ', '').split('\n')[8:])
-
-        return data
-
-    def find_picture_result(self):
-        table = self.are_visible('css', self.result_table)
-        data = []
-        for row in table:
-            data.append(
-                row.text.replace('Student Name', '').replace('Student Email', '').replace('Gender', '').replace('Mobile',
-                                                                                                            '').replace(
-                'Date of Birth ', '').replace('Subjects ', '').replace('Hobbies ', '').replace('Picture ', '').replace(
-                'Address ', '').replace('StateandCity ', '').replace(' ', '').split('\n')[7:])
-
-        return data
-
-
-
-
 
 
 

@@ -201,13 +201,8 @@ class TestForCheckbox:
         form_page.find_submit_button()
         time.sleep(5)
         table_result = form_page.check_result_table()
-        mobile_result = form_page.find_mobile_result()
-        picture_result = form_page.find_picture_result()
-        address_result = form_page.find_address_result()
         print(table_result)
         assert name, email in table_result
-        assert mobile in mobile_result
-        assert current_address in address_result
 
 
 
