@@ -17,7 +17,7 @@ class CheckBoxes(SeleniumBase):
         self.checked_items = 'svg[class="rct-icon rct-icon-check"]'
         self.checkbox_list = 'span[class="rct-title"]'
         self.checkbox_list_text = ['Home', 'Desktop', 'Notes', 'Commands', 'Documents', 'WorkSpace', 'React', 'Angular', 'Veu', 'Office', 'Public', 'Private', 'Classified', 'General', 'Downloads', 'Word File.doc', 'Excel File.doc']
-        self.title_item = './/ancestor::span[@class="rct-text"]'
+        self.title_item = "//ancestor::span[@class='rct-text']"
         self.output_checkboxes = 'span[class="text-success"]'
 
 

@@ -21,11 +21,14 @@ class WebTables(SeleniumBase):
         self.salary_field = 'input[id="salary"]'
         self.department_field = 'input[id="department"]'
         self.submit_button = 'button[id="submit"]'
-        self.delete_button = 'span[id="delete-record-1"]'
+        self.delete_button = 'span[title="Delete"]'
         self.edit_button = 'span[title="Edit"]'
         self.table_row = 'div[class="rt-tr-group"]'
         self.count_row_list = '[aria-label="rows per page"]'
         self.full_list = 'div[class="rt-tbody"]'
+        self.row_parent = ".//ancestor::div[@class='rt-tr-group']"
+        self.not_found = 'div[class="rt-noData"]'
+        self.no_rows_found_text = 'No rows found'
 
     def find_webtables_page(self):
         return self.is_visible('css', self.find_page, 'Open Webtables')
@@ -102,6 +105,29 @@ class WebTables(SeleniumBase):
     def check_count_rows(self):
         list_rows = self.are_present('css', self.full_list)
         return len(list_rows)
+
+    def search_person(self, key_word):
+        return self.is_visible('css', self.search_field).send_keys(key_word)
+
+    def check_person(self):
+        delete_button = self.is_visible('css', self.delete_button)
+        row = delete_button.find_element('xpath', self.row_parent)
+        return row.text.splitlines()
+
+    def update_person_info(self):
+        person_info = next(generate_row())
+        age = person_info.age
+        self.is_visible('css', self.edit_button).click()
+        self.is_visible('css', self.age_field).clear()
+        self.is_visible('css', self.age_field).send_keys(age)
+        self.is_visible('css', self.submit_button).click()
+        return str(age)
+
+    def delete_person(self):
+        self.is_visible('css', self.delete_button).click()
+
+    def check_deleted(self):
+        return self.is_present('css', self.not_found).text
 
 
 
